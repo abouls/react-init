@@ -44,9 +44,9 @@ const common = {
         test: /\.js$/,
         include: PATH.src,
         loader: 'babel',
-          query: {
-            presets: ['es2015','stage-0']
-          }
+        query: {
+          presets: ['es2015','stage-0']
+        }
       }
     ]
   },
