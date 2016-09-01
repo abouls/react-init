@@ -25,6 +25,7 @@ const common = {
 	module: {
 		loaders: [
 			{
+			  // This loader example kept in here for future reference of custom webpack loader
 				test: /\.woota$/,
 				include: PATH.src,
 				loader: path.resolve('./src/demo/loader.js')
