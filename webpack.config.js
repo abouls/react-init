@@ -1,4 +1,4 @@
-//
+
 const path = require('path')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
@@ -13,73 +13,73 @@ const PATH = {
 
 const common = {
   entry: PATH.src,
-	output: {
+  output: {
     path: PATH.dist,
     filename: 'bundle.js'
-	},
-	plugins: [
-		new HtmlWebpackPlugin({
-			template: path.join(PATH.src, 'assets/tpl.html'),
-			hash: true
-		})
-	],
-	module: {
-		loaders: [
-			{
-			  // This loader example kept in here for future reference of custom webpack loader
-				test: /\.woota$/,
-				include: PATH.src,
-				loader: path.resolve('./src/demo/loader.js')
-			},
-			{
-				test: /\.css$/,
-				include: PATH.src,
-				loader: 'style!css'
-			},
-			{
-				test: /\.(png|jpg)$/,
-				loader: 'url-loader?limit=8000'
-			},
-			{
-				test: /\.js$/,
-				include: PATH.src,
-				loader: 'babel',
-				query: {
-					presets: ['es2015','stage-0']
-				}
-			}
-		]
-	},
-	externals: {
-		jquery: 'jQuery'
-	}
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: path.join(PATH.src, 'assets/tpl.html'),
+      hash: true
+    })
+  ],
+  module: {
+    loaders: [
+      {
+        // This loader example kept in here for future reference of custom webpack loader
+        test: /\.woota$/,
+        include: PATH.src,
+        loader: path.resolve('./src/demo/loader.js')
+      },
+      {
+        test: /\.css$/,
+        include: PATH.src,
+        loader: 'style!css'
+      },
+      {
+        test: /\.(png|jpg)$/,
+        loader: 'url-loader?limit=8000'
+      },
+      {
+        test: /\.js$/,
+        include: PATH.src,
+        loader: 'babel',
+          query: {
+            presets: ['es2015','stage-0']
+          }
+      }
+    ]
+  },
+  externals: {
+    jquery: 'jQuery'
+  }
 }
 
 if(TARGET === 'start'){
-	module.exports = merge(common, {
-		devServer: {
-			hot: true,
-			inline: true,
-			stats: 'errors-only',
-			contentBase: PATH.dist
-		},
-		plugins: [
-			new webpack.HotModuleReplacementPlugin()
-		],
-		devtool: 'source-map'
-	})
+  module.exports = merge(common, {
+    devServer: {
+      hot: true,
+      inline: true,
+      stats: 'errors-only',
+      contentBase: PATH.dist
+    },
+    plugins: [
+      new webpack.HotModuleReplacementPlugin()
+    ],
+    devtool: 'source-map'
+  })
 }
 if(TARGET === 'build'){
-	module.exports = merge(common, {
-		plugins: [
-			new webpack.optimize.UglifyJsPlugin({
-				compress: {
-					warnings: false
-				}
-			}),
-			new webpack.DefinePlugin({
-			    'process.env.NODE_ENV': '"production"'
-			})
-		]
-	})
+  module.exports = merge(common, {
+    plugins: [
+      new webpack.optimize.UglifyJsPlugin({
+        compress: {
+          warnings: false
+        }
+      }),
+      new webpack.DefinePlugin({
+        'process.env.NODE_ENV': '"production"'
+      })
+    ]
+  })
 }
