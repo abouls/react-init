@@ -6,15 +6,15 @@ const merge = require('webpack-merge')
 // webpack command run by npm start or npm run build, then it will be in the npm lifecycle.
 const TARGET = process.env.npm_lifecycle_event
 const PATH = {
-	src: path.join(__dirname,'src'),
-	dist: path.join(__dirname,'dist')
+  src: path.join(__dirname,'src'),
+  dist: path.join(__dirname,'dist')
 }
 
 const common = {
-	entry: PATH.src,
+  entry: PATH.src,
 	output: {
-		path: PATH.dist,
-		filename: 'bundle.js'
+    path: PATH.dist,
+    filename: 'bundle.js'
 	},
 	plugins: [
 		new HtmlWebpackPlugin({
