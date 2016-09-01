@@ -54,7 +54,6 @@ const common = {
 	}
 }
 
-
 if(TARGET === 'start'){
 	module.exports = merge(common, {
 		devServer: {
