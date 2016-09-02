@@ -6,8 +6,10 @@ import ReactDOM from 'react-dom'
 class App extends Component {
   render() {
     return (
-      {/* Replace the div markup with your own components of react */}
-      <div>hey, ho, let's go!!!</div>  
+      <div>
+        {/* Replace the sentence below with your own components of react */}
+        hey, ho, let's go!!!
+      </div>  
     )
   }
 }
