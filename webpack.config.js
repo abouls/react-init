@@ -41,7 +41,7 @@ const common = {
         loader: 'url-loader?limit=8000'
       },
       {
-        test: /\.js$/,
+        test: /\.jsx?$/,
         include: PATH.src,
         loader: 'babel',
         query: {
