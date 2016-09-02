@@ -7,7 +7,7 @@ class App extends Component {
   render() {
     return (
       {/* Replace the div markup with your own components of react */}
-      <div>hey, ho, let\'s go!!!</div>  
+      <div>hey, ho, let's go!!!</div>  
     )
   }
 }
