@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node_modules/.bin/webpack-dev-server",
     "build": "node_modules/.bin/webpack",
-    "antd": "node_modules/.bin/shx cp node_modules/antd/dist/antd.min.css dist/libs/antd.css",
+    "antd": "node_modules/.bin/shx cp node_modules/antd/lib/index.css dist/libs/antd.css",
     "test": ""
   },
   "keywords": [
